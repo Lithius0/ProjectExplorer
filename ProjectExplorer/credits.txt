@@ -1,0 +1,24 @@
+﻿This file is a temporary store of credits. 
+The plan is to create most of the assets from scratch, but placeholders will be used until then.
+
+General Sprites
+ArMM1998
+https://opengameart.org/content/zelda-like-tilesets-and-sprites
+These assets should be used as placeholders until custom assets are made.
+Sprites/World/Cave.png
+Sprites/World/Inner.png
+Sprites/World/Objects.png
+Sprites/World/Overworld.png
+Sprites/Player/Character.png
+
+Dusk Font
+Dusk Games
+https://dusk-games.itch.io/dusk-free-fonts
+CC0
+Sprites/DuskB3.png
+
+Item Sprites
+Pixel Creations
+https://pixelcreations.itch.io/rpg-items-16x16
+Sprites/Items/PixelCreations/
+This collection is a bit of an anomaly because of how many there are. To organize it, they're all in one folder.

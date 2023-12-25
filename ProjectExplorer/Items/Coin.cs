@@ -1,0 +1,44 @@
+﻿using ProjectExplorer.Items.Sprites;
+using ProjectExplorer.CharacterNS;
+using ProjectExplorer.SoundEffects;
+using ProjectExplorer.SpriteUtil;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectExplorer.Items
+{
+    public class Coin : IItem
+    {
+        private static readonly Coin instance = new();
+        public static IItem Instance => instance;
+        private Coin()
+        {
+        }
+
+        public ISprite GetSprite(Vector2 position)
+        {
+            return ItemSpriteFactory.Instance.GetCoinSprite(position);
+        }
+
+        public void Pickup(IPlayer player, int amount = 1)
+        {
+            player.Inventory.AddItem(Instance, amount);
+            SoundFactory.Instance.PlaySound("GetRupee");
+        }
+
+        public bool Use(IPlayer player)
+        {
+            return false;
+        }
+
+        public override string ToString()
+        {
+            return "Coin";
+        }
+    }
+}

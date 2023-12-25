@@ -1,4 +1,4 @@
-﻿using ProjectExplorer.CharacterNS;
+﻿using ProjectExplorer.Character;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Diagnostics;
@@ -7,7 +7,7 @@ using ProjectExplorer.Items.Sprites;
 using ProjectExplorer.Levels;
 using ProjectExplorer.Projectiles.Sprites;
 using ProjectExplorer.Controllers;
-using ProjectExplorer.CharacterNS.Sprite;
+using ProjectExplorer.Character.Sprite;
 using ProjectExplorer.DebugMode;
 using ProjectExplorer.UI;
 using ProjectExplorer.SoundEffects;

@@ -9,9 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectExplorer
+namespace ProjectExplorer.Character
 {
-    public abstract class Character : ICharacter, ICollidable
+    public abstract class BaseCharacter : ICharacter, ICollidable
     {
         protected Vector2 position;
         protected Point size = Tiling.Full;
@@ -36,29 +36,36 @@ namespace ProjectExplorer
         public bool RecentlyDamaged { get { return invincibleTimer > 0; } }
 
         public Vector2 Position
-        { 
+        {
             get { return position; }
             set { position = value; }
         }
         public Direction Direction
-        { get { return direction; } }
+        { 
+            get { return direction; } 
+            set { direction = value; }
+        }
 
         public float Health
-        {  
-            get { return health; } 
-            set { 
+        {
+            get { return health; }
+            set
+            {
                 health = Math.Clamp(value, 0, maxHealth);
                 if (health <= 0)
-                    Died?.Invoke(this, EventArgs.Empty);
-            }
+                    Kill();
+            }       
         }
 
         public float MaxHealth
-        { get { return maxHealth; } }
+        { 
+            get { return maxHealth; } 
+            set { maxHealth = Math.Max(value, 0); }
+        }
 
         public abstract CollisionGroup Group { get; }
 
-        public Character()
+        public BaseCharacter()
         {
             exclusion = new CharacterExclusion(this);
         }
@@ -78,6 +85,12 @@ namespace ProjectExplorer
                 return false;
             }
         }
+        public virtual void Kill()
+        {
+            health = 0; // Don't use the property. Don't want to trigger kill again.
+            Died?.Invoke(this, EventArgs.Empty);
+        }
+
         public abstract void Draw(GameTime gameTime, SpriteBatch spriteBatch);
         public Rectangle GetTransform()
         {
@@ -110,7 +123,7 @@ namespace ProjectExplorer
 
                 Rectangle target = exclusion.GetCollider();
                 // Position of character is not the same as position for exclusion, so these must be reconciled.
-                Vector2 offset = target.Location.ToVector2() - position; 
+                Vector2 offset = target.Location.ToVector2() - position;
                 target.Offset(pushVelocity * elapsedTime);
 
                 position = level.LastValidSpotBetween(exclusion, target).Location.ToVector2() - offset;

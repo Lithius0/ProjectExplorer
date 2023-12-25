@@ -1,5 +1,5 @@
 ﻿using ProjectExplorer.Collision;
-using ProjectExplorer.CharacterNS;
+using ProjectExplorer.Character;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;

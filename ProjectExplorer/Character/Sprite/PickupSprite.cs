@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectExplorer.CharacterNS.Sprite
+namespace ProjectExplorer.Character.Sprite
 {
     /// <summary>
     /// The reason this is a class of its own rather than being just a method in a factory

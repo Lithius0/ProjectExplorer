@@ -1,7 +1,7 @@
 ﻿using ProjectExplorer.Collision;
 using ProjectExplorer.Items;
 using ProjectExplorer.Items.Sprites;
-using ProjectExplorer.CharacterNS;
+using ProjectExplorer.Character;
 using ProjectExplorer.Projectiles.Sprites;
 using ProjectExplorer.Utility;
 using Microsoft.Xna.Framework;

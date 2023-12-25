@@ -1,4 +1,4 @@
-﻿using ProjectExplorer.CharacterNS;
+﻿using ProjectExplorer.Character;
 using System;
 using System.Collections.Immutable;
 

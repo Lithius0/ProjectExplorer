@@ -3,7 +3,7 @@ using ProjectExplorer.UI;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Diagnostics;
-using ProjectExplorer.CharacterNS;
+using ProjectExplorer.Character;
 using System.Collections.Generic;
 using System;
 using ProjectExplorer.Items;

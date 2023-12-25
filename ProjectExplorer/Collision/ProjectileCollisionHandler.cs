@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
-using ProjectExplorer.CharacterNS;
+using ProjectExplorer.Character;
 using ProjectExplorer.SoundEffects;
 using ProjectExplorer.Utility;
 

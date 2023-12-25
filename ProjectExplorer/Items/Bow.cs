@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using ProjectExplorer.Items.Sprites;
-using ProjectExplorer.CharacterNS;
+using ProjectExplorer.Character;
 using ProjectExplorer.Projectiles;
 using ProjectExplorer.SoundEffects;
 using ProjectExplorer.SpriteUtil;

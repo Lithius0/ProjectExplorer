@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using ProjectExplorer.SpriteUtil;
 using ProjectExplorer.Items;
-using ProjectExplorer.CharacterNS;
+using ProjectExplorer.Character;
 using Microsoft.Xna.Framework.Input;
 using ProjectExplorer.Utility;
 

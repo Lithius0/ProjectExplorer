@@ -1,5 +1,5 @@
 ﻿using ProjectExplorer.Items.Sprites;
-using ProjectExplorer.CharacterNS;
+using ProjectExplorer.Character;
 using ProjectExplorer.SoundEffects;
 using ProjectExplorer.SpriteUtil;
 using Microsoft.Xna.Framework;

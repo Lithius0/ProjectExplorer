@@ -1,5 +1,5 @@
 ﻿using ProjectExplorer.Items;
-using ProjectExplorer.CharacterNS;
+using ProjectExplorer.Character;
 using ProjectExplorer.Tiles;
 using Microsoft.Xna.Framework;
 using System;

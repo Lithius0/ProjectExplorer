@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace ProjectExplorer.CharacterNS.Sprite
+namespace ProjectExplorer.Character.Sprite
 {
     /// <summary>
     /// Sprite for the player.

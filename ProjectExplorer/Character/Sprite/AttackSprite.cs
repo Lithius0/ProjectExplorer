@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectExplorer.CharacterNS.Sprite
+namespace ProjectExplorer.Character.Sprite
 {
     public class AttackSprite : PlayerSubsprite
     {

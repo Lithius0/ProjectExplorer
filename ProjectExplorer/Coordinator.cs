@@ -2,8 +2,8 @@
 using ProjectExplorer.Items;
 using ProjectExplorer.Items.Storage;
 using ProjectExplorer.Levels;
-using ProjectExplorer.CharacterNS;
-using ProjectExplorer.CharacterNS.Sprite;
+using ProjectExplorer.Character;
+using ProjectExplorer.Character.Sprite;
 using ProjectExplorer.SpriteUtil;
 using ProjectExplorer.UI;
 using ProjectExplorer.Utility;

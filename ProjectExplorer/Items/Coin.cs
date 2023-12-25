@@ -1,5 +1,5 @@
 ﻿using ProjectExplorer.Items.Sprites;
-using ProjectExplorer.CharacterNS;
+using ProjectExplorer.Character;
 using ProjectExplorer.SoundEffects;
 using ProjectExplorer.SpriteUtil;
 using Microsoft.Xna.Framework;
@@ -28,7 +28,7 @@ namespace ProjectExplorer.Items
         public void Pickup(IPlayer player, int amount = 1)
         {
             player.Inventory.AddItem(Instance, amount);
-            SoundFactory.Instance.PlaySound("GetRupee");
+            SoundFactory.Instance.PlaySound("GetCoin");
         }
 
         public bool Use(IPlayer player)

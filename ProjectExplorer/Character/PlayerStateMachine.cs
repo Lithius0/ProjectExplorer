@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectExplorer.CharacterNS
+namespace ProjectExplorer.Character
 {
     public class PlayerStateMachine
     {

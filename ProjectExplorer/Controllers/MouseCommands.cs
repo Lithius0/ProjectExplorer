@@ -1,6 +1,6 @@
 ﻿using ProjectExplorer.Items;
 using ProjectExplorer.Levels;
-using ProjectExplorer.CharacterNS;
+using ProjectExplorer.Character;
 using Microsoft.Xna.Framework.Input;
 using ProjectExplorer.Controllers.Commands;
 

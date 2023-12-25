@@ -1,7 +1,7 @@
 ﻿using ProjectExplorer.Items.Sprites;
 using ProjectExplorer.Levels;
-using ProjectExplorer.CharacterNS;
-using ProjectExplorer.CharacterNS.Sprite;
+using ProjectExplorer.Character;
+using ProjectExplorer.Character.Sprite;
 using ProjectExplorer.Projectiles;
 using ProjectExplorer.SoundEffects;
 using ProjectExplorer.SpriteUtil;

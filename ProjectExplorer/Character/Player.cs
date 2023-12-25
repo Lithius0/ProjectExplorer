@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using ProjectExplorer.CharacterNS.Sprite;
+using ProjectExplorer.Character.Sprite;
 using ProjectExplorer.Collision;
 using ProjectExplorer.Items;
 using ProjectExplorer.Items.Storage;
@@ -10,9 +10,9 @@ using ProjectExplorer.SoundEffects;
 using Microsoft.VisualBasic;
 using System;
 
-namespace ProjectExplorer.CharacterNS
+namespace ProjectExplorer.Character
 {
-    class Player : Character, IPlayer, ISticky
+    class Player : BaseCharacter, IPlayer, ISticky
     {
         private readonly IInventory inventory;
         private readonly IItemSelector selector;

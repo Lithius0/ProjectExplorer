@@ -1,6 +1,6 @@
 ﻿using ProjectExplorer.Collision;
 using ProjectExplorer.Levels;
-using ProjectExplorer.CharacterNS;
+using ProjectExplorer.Character;
 using ProjectExplorer.SpriteUtil;
 using ProjectExplorer.Utility;
 using Microsoft.Xna.Framework;

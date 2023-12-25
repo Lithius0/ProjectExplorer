@@ -1,4 +1,4 @@
-﻿using ProjectExplorer.CharacterNS;
+﻿using ProjectExplorer.Character;
 using ProjectExplorer.Tiles.ControlTiles;
 using Microsoft.Xna.Framework;
 using System;

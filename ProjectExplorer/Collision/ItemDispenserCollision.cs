@@ -1,5 +1,5 @@
 ﻿using ProjectExplorer.Items.ItemEntities;
-using ProjectExplorer.CharacterNS;
+using ProjectExplorer.Character;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;

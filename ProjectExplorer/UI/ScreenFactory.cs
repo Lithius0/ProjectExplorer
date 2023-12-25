@@ -1,5 +1,5 @@
 ﻿using ProjectExplorer.Levels;
-using ProjectExplorer.CharacterNS;
+using ProjectExplorer.Character;
 using ProjectExplorer.Utility;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;

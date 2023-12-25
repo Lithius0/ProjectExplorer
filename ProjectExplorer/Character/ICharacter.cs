@@ -9,14 +9,14 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectExplorer
+namespace ProjectExplorer.Character
 {
     public interface ICharacter : IGameObject
     {
-        public float MaxHealth { get; }
-        public float Health { get; }
-        public Direction Direction { get; }
-        public Vector2 Position { get; set;  }
+        public float MaxHealth { get; set; }
+        public float Health { get; set; }
+        public Direction Direction { get; set; }
+        public Vector2 Position { get; set; }
         public ILevel Level { get; }
         public bool RecentlyDamaged { get; }
         /// <summary>

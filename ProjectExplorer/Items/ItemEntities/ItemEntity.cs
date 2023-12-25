@@ -1,6 +1,6 @@
 ﻿using ProjectExplorer.Collision;
 using ProjectExplorer.Levels;
-using ProjectExplorer.CharacterNS;
+using ProjectExplorer.Character;
 using ProjectExplorer.SoundEffects;
 using ProjectExplorer.SpriteUtil;
 using ProjectExplorer.Utility;
@@ -58,6 +58,10 @@ namespace ProjectExplorer.Items.ItemEntities
             this.amount = amount;
             collisionHandler = new ItemDispenserCollision(this);
         }
+        public ItemEntity(IItem item, Vector2 position, int amount = 1) : this(item, position, Tiling.Full, amount)
+        {
+        }
+
 
         public virtual void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {

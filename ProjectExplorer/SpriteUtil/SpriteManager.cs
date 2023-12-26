@@ -32,6 +32,7 @@ namespace ProjectExplorer.SpriteUtil
             sprites.Add("Projectiles", content.Load<Texture2D>("Sprites/Projectiles"));
             sprites.Add("Hud", content.Load<Texture2D>("Sprites/UserInterface/Hud"));
             sprites.Add("Missing", content.Load<Texture2D>("Sprites/Missing"));
+            sprites.Add("Slime", content.Load<Texture2D>("Sprites/Enemies/Slime"));
 
 
             Texture2D pixel = new(graphics, 1, 1);

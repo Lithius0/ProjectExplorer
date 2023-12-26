@@ -67,6 +67,11 @@
       "ObjectId": "bow",
       "TileX": 26,
       "TileY": 10
+    },
+    {
+      "ObjectId": "slime",
+      "TileX": 20,
+      "TileY": 11
     }
   ]
 }

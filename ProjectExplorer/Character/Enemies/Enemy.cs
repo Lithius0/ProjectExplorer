@@ -28,7 +28,6 @@ namespace ProjectExplorer.Character.Enemies
         {
             dropTable = new DropTable(3);
             dropTable.Add(Coin.Instance, 1, 4);
-            dropTable.Add(Coin.Instance, 1, 2);
             dropTable.Add(Heart.Instance, 1, 1);
 
             collisionHandler = new EnemyCollisionHandler();

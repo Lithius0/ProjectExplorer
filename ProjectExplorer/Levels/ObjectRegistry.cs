@@ -13,6 +13,7 @@ using ProjectExplorer.Tiles.ControlTiles;
 using ProjectExplorer.Scripts;
 using ProjectExplorer.SpriteUtil.Text;
 using ProjectExplorer.SpriteUtil;
+using ProjectExplorer.Character.Enemies;
 
 namespace ProjectExplorer.Levels
 {
@@ -68,6 +69,8 @@ namespace ProjectExplorer.Levels
 
             // Scripts
             // TODO: Scripts
+
+            registry["slime"] = new Slime(Vector2.Zero);
         }
 
         public static IGameObject GetObject(ObjectDefinition def)

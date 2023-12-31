@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ProjectExplorer.Character.Sprite;
 using ProjectExplorer.Levels;
 using ProjectExplorer.SpriteUtil;
 using System;
@@ -13,17 +14,15 @@ namespace ProjectExplorer.Character.Enemies
 {
     public class Slime : Enemy, IMitotic
     {
-        private IAnimatedSprite rightSprite;
-        private IAnimatedSprite leftSprite;
+        private IAnimatedSprite sprite;
         private bool moving = false;
         private float moveTimer = 2;
 
         public Slime(Vector2 position)
         {
             this.position = position;
-            rightSprite = new SimpleAnimatedSprite(SpriteManager.GetTexture("Slime"), new Rectangle(0, 0, 16, 16), this, 3, 1 / 6f, true);
-            leftSprite = new SimpleAnimatedSprite(SpriteManager.GetTexture("Slime"), new Rectangle(0, 16, 16, 16), this, 3, 1 / 6f, true);
             direction = Direction.RIGHT;
+            sprite = new SlimeSprite(this);
         }
 
         public override void Update(GameTime gameTime)
@@ -41,14 +40,12 @@ namespace ProjectExplorer.Character.Enemies
                 moving = !moving;
                 if (moving)
                 {
-                    rightSprite.Play();
-                    leftSprite.Play();
+                    sprite.Play();
                     direction = direction.Flip();
                 }
                 else
                 {
-                    rightSprite.Stop();
-                    leftSprite.Stop();
+                    sprite.Stop();
                 }
             }
 
@@ -66,14 +63,7 @@ namespace ProjectExplorer.Character.Enemies
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            if (direction == Direction.RIGHT)
-            {
-                rightSprite.Draw(gameTime, spriteBatch);
-            }
-            else
-            {
-                leftSprite.Draw(gameTime, spriteBatch);
-            }
+            sprite.Draw(gameTime, spriteBatch);
         }
     }
 }

@@ -8,10 +8,11 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using ProjectExplorer.SpriteUtil;
 
 namespace ProjectExplorer.Character
 {
-    public interface ICharacter : IGameObject
+    public interface ICharacter : IGameObject, ISticky
     {
         public float MaxHealth { get; set; }
         public float Health { get; set; }

@@ -86,7 +86,7 @@ namespace ProjectExplorer.Items.ItemEntities
 
         public Rectangle GetCollider()
         {
-            return Positioning.ConstructFromAnchorPoint(Position, size, AnchorPoints.Middle);
+            return AnchorPoints.Construct(Position, size, AnchorPoints.Middle);
         }
 
         public ICollisionHandler GetCollisionHandler()

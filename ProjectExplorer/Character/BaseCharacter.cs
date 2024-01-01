@@ -94,7 +94,7 @@ namespace ProjectExplorer.Character
         public abstract void Draw(GameTime gameTime, SpriteBatch spriteBatch);
         public Rectangle GetTransform()
         {
-            return Positioning.ConstructFromAnchorPoint(position, size, AnchorPoints.Middle);
+            return AnchorPoints.Construct(position, size, AnchorPoints.Middle);
         }
         public virtual void Heal(int heal)
         {
@@ -132,7 +132,7 @@ namespace ProjectExplorer.Character
 
         public virtual Rectangle GetCollider()
         {
-            return Positioning.ConstructFromAnchorPoint(position, size, AnchorPoints.Middle);
+            return AnchorPoints.Construct(position, size, AnchorPoints.Middle);
         }
 
         public abstract ICollisionHandler GetCollisionHandler();

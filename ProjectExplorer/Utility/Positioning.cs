@@ -5,29 +5,6 @@ namespace ProjectExplorer.Utility
 {
     public static class Positioning
     {
-        /// <summary>
-        /// Create a rectangle such that the origin given will lie at the anchor point of the new rectangle.
-        /// <br />
-        /// For example, calling this method with the origin (25, 62) and the BottomLeft anchor point will
-        /// create a rectangle with its bottom middle at the position (25, 62)
-        /// </summary>
-        public static Rectangle ConstructFromAnchorPoint(Vector2 origin, Point size, Vector2 anchorPoint)
-        {
-            origin -= size.ToVector2() * anchorPoint;
-            return new Rectangle(origin.ToPoint(), size);
-        }
-        /// <summary>
-        /// Create a rectangle such that the origin given will lie at the anchor point of the new rectangle.
-        /// <br />
-        /// For example, calling this method with the origin (25, 62) and the BottomLeft anchor point will
-        /// create a rectangle with its bottom middle at the position (25, 62)
-        /// </summary>
-        public static Rectangle ConstructFromAnchorPoint(Point origin, Point size, Vector2 anchorPoint)
-        {
-            origin -= (size.ToVector2() * anchorPoint).ToPoint();
-            return new Rectangle(origin, size);
-        }
-
         public static Vector2 GetCenter(Vector2 topLeft, Vector2 size)
         {
             return topLeft + (size / 2);

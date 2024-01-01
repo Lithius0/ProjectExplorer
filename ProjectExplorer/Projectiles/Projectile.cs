@@ -75,7 +75,7 @@ namespace ProjectExplorer.Projectiles
 
         public virtual Rectangle GetCollider()
         {
-            return Positioning.ConstructFromAnchorPoint(Position, Tiling.Full, AnchorPoints.Middle);
+            return AnchorPoints.Construct(Position, Tiling.Full, AnchorPoints.Middle);
         }
 
         public ICollisionHandler GetCollisionHandler()

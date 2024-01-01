@@ -72,16 +72,16 @@ namespace ProjectExplorer.Utility
                 Vector2 size = manager.Player.GetTransform().Size.ToVector2();
                 switch (direction)
                 {
-                    case Direction.UP:
+                    case Direction.Up:
                         position = new Vector2(position.X, Tiling.LevelSize.Y - size.Y - 1);
                         break;
-                    case Direction.DOWN:
+                    case Direction.Down:
                         position = new Vector2(position.X, 1);
                         break;
-                    case Direction.LEFT:
+                    case Direction.Left:
                         position = new Vector2(Tiling.LevelSize.X - size.X - 1, position.Y);
                         break;
-                    case Direction.RIGHT:
+                    case Direction.Right:
                         position = new Vector2(1, position.Y);
                         break;
                 }
@@ -92,7 +92,7 @@ namespace ProjectExplorer.Utility
 
         public Matrix PreviousMatrix()
         {
-            Vector2 offset = Tiling.LevelSize.ToVector2() * -direction.GetVector2() * Progress;
+            Vector2 offset = Tiling.LevelSize.ToVector2() * -direction.ToVector2() * Progress;
             return Matrix.CreateTranslation(new Vector3(offset.X, offset.Y, 0));
         }
 
@@ -102,7 +102,7 @@ namespace ProjectExplorer.Utility
         /// </summary>
         private static Matrix GetOffset(Direction direction, float multiplier)
         {
-            Vector2 offset = Tiling.LevelSize.ToVector2() * direction.GetVector2() * multiplier;
+            Vector2 offset = Tiling.LevelSize.ToVector2() * direction.ToVector2() * multiplier;
 
             return Matrix.CreateTranslation(offset.X, offset.Y, 0);
         }

@@ -29,11 +29,11 @@ namespace ProjectExplorer.Projectiles
 
         public float Angle => angle;
 
-        public SwordSweep(Direction direction, ICharacter owner) : base(Vector2.Zero, direction.GetVector2(), owner)
+        public SwordSweep(Direction direction, ICharacter owner) : base(Vector2.Zero, direction.ToVector2(), owner)
         {
             sprite = ProjectileSpriteFactory.Instance.GetSwordSweepSprite(this);
             collisionHandler = new ProjectileCollisionHandler(this, false);
-            offset = direction.GetVector2() * offsetLength;
+            offset = direction.ToVector2() * offsetLength;
             // Initial positioning of the sword.
             angle = -sweepAngle;
             Position = owner.Position + Positioning.Rotate(offset, angle);

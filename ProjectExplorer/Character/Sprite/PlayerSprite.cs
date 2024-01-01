@@ -31,17 +31,17 @@ namespace ProjectExplorer.Character.Sprite
 
             moveSprites = new Dictionary<Direction, IAnimatedSprite>
             {
-                { Direction.UP, PlayerSpriteFactory.Instance.GetPlayerMoveSprite(Direction.UP, player) },
-                { Direction.DOWN, PlayerSpriteFactory.Instance.GetPlayerMoveSprite(Direction.DOWN, player) },
-                { Direction.LEFT, PlayerSpriteFactory.Instance.GetPlayerMoveSprite(Direction.LEFT, player) },
-                { Direction.RIGHT, PlayerSpriteFactory.Instance.GetPlayerMoveSprite(Direction.RIGHT, player) }
+                { Direction.Up, PlayerSpriteFactory.Instance.GetPlayerMoveSprite(Direction.Up, player) },
+                { Direction.Down, PlayerSpriteFactory.Instance.GetPlayerMoveSprite(Direction.Down, player) },
+                { Direction.Left, PlayerSpriteFactory.Instance.GetPlayerMoveSprite(Direction.Left, player) },
+                { Direction.Right, PlayerSpriteFactory.Instance.GetPlayerMoveSprite(Direction.Right, player) }
             };
             attackSprites = new Dictionary<Direction, IAnimatedSprite>
             {
-                { Direction.UP, PlayerSpriteFactory.Instance.GetPlayerAttackingSprite(Direction.UP, player) },
-                { Direction.DOWN, PlayerSpriteFactory.Instance.GetPlayerAttackingSprite(Direction.DOWN, player) },
-                { Direction.LEFT, PlayerSpriteFactory.Instance.GetPlayerAttackingSprite(Direction.LEFT, player) },
-                { Direction.RIGHT, PlayerSpriteFactory.Instance.GetPlayerAttackingSprite(Direction.RIGHT, player) }
+                { Direction.Up, PlayerSpriteFactory.Instance.GetPlayerAttackingSprite(Direction.Up, player) },
+                { Direction.Down, PlayerSpriteFactory.Instance.GetPlayerAttackingSprite(Direction.Down, player) },
+                { Direction.Left, PlayerSpriteFactory.Instance.GetPlayerAttackingSprite(Direction.Left, player) },
+                { Direction.Right, PlayerSpriteFactory.Instance.GetPlayerAttackingSprite(Direction.Right, player) }
             };
 
             player.StateMachine.StateChanged += OnStateChanged;

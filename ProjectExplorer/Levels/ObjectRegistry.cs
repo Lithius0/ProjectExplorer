@@ -62,7 +62,7 @@ namespace ProjectExplorer.Levels
 
 
             // Triggers
-            registry["level_transition"] = new LevelTransitionTrigger(Point.Zero, Tiling.Full, "", Direction.UP);
+            registry["level_transition"] = new LevelTransitionTrigger(Point.Zero, Tiling.Full, "", Direction.Up);
             // TODO: Level transition trigger shortcuts
             // TODO: Controls
 

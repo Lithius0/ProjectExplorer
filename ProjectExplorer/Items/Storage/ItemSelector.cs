@@ -68,10 +68,10 @@ namespace ProjectExplorer.Items.Storage
         {
             int offset = direction switch
             {
-                Direction.UP => -RowLength,
-                Direction.DOWN => RowLength,
-                Direction.LEFT => -1,
-                Direction.RIGHT => 1,
+                Direction.Up => -RowLength,
+                Direction.Down => RowLength,
+                Direction.Left => -1,
+                Direction.Right => 1,
                 _ => 1,
             };
 

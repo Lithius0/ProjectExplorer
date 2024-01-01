@@ -32,7 +32,7 @@ namespace ProjectExplorer.Collision
         public void Exclude(Rectangle intersection)
         {
             Direction dir = character.Direction;
-            Vector2 push = -dir.GetVector2();
+            Vector2 push = -dir.ToVector2();
             push *= intersection.Size.ToVector2();
             character.Move(push);
         }

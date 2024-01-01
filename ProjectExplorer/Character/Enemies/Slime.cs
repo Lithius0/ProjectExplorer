@@ -22,7 +22,7 @@ namespace ProjectExplorer.Character.Enemies
         public Slime(Vector2 position)
         {
             this.position = position;
-            direction = Direction.RIGHT;
+            direction = Direction.Right;
             sprite = new SlimeSprite(this);
         }
 
@@ -52,7 +52,7 @@ namespace ProjectExplorer.Character.Enemies
 
             if (moving)
             {
-                position += direction.GetVector2() * (float)gameTime.ElapsedGameTime.TotalSeconds * speed;
+                position += direction.ToVector2() * (float)gameTime.ElapsedGameTime.TotalSeconds * speed;
             }
             
         }

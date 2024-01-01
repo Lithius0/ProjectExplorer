@@ -78,10 +78,10 @@ namespace ProjectExplorer.Collision
             bool isProjectileMovingUp = projectile.Velocity.Y > 0;
             bool isProjectileMovingDown = projectile.Velocity.Y < 0;
 
-            bool characterFacingRight = character.Direction == Direction.RIGHT;
-            bool characterFacingLeft = character.Direction == Direction.LEFT;
-            bool characterFacingUp = character.Direction == Direction.UP;
-            bool characterFacingDown = character.Direction == Direction.DOWN;
+            bool characterFacingRight = character.Direction == Direction.Right;
+            bool characterFacingLeft = character.Direction == Direction.Left;
+            bool characterFacingUp = character.Direction == Direction.Up;
+            bool characterFacingDown = character.Direction == Direction.Down;
 
             block = (isProjectileMovingLeft && (characterFacingRight || (isProjectileMovingUp && characterFacingUp) || (isProjectileMovingDown && characterFacingDown)))
                  || (isProjectileMovingRight && (characterFacingLeft || (isProjectileMovingUp && characterFacingUp) || (isProjectileMovingDown && characterFacingDown)))

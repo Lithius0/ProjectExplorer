@@ -95,7 +95,7 @@ namespace ProjectExplorer.Character
         {
             if (stateMachine.State == PlayerState.Moving)
             {
-                Vector2 changeInPosition = direction.GetVector2();
+                Vector2 changeInPosition = direction.ToVector2();
                 changeInPosition *= (float)(PlayerConfig.MovementSpeed * gameTime.ElapsedGameTime.TotalSeconds);
 
                 position += changeInPosition;

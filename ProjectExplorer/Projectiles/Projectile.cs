@@ -60,8 +60,8 @@ namespace ProjectExplorer.Projectiles
         protected Projectile(ICharacter owner, float speed, int damage = 1)
         {
             this.damage = damage;
-            Position = owner.Position + owner.Direction.GetVector2() * Tiling.ToPixels(0.5f);
-            velocity = owner.Direction.GetVector2() * speed;
+            Position = owner.Position + owner.Direction.ToVector2() * Tiling.ToPixels(0.5f);
+            velocity = owner.Direction.ToVector2() * speed;
             this.owner = owner;
             collisionHandler = new ProjectileCollisionHandler(this);
         }

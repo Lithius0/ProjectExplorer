@@ -33,10 +33,10 @@ namespace ProjectExplorer.Character.Sprite
         {
             return direction switch
             {
-                Direction.DOWN => 0,
-                Direction.RIGHT => 32,
-                Direction.UP => 64,
-                Direction.LEFT => 96,
+                Direction.Down => 0,
+                Direction.Right => 32,
+                Direction.Up => 64,
+                Direction.Left => 96,
                 _ => throw new NotImplementedException(),
             };
         }

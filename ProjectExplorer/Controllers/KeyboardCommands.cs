@@ -11,21 +11,21 @@ namespace ProjectExplorer.Controllers
     {
         public static void RegisterPlayerCommands(KeyboardController controller, IPlayer player)
         {
-            controller.RegisterPressCommand(Keys.W, new MoveCommand(player, Direction.UP));
-            controller.RegisterPressCommand(Keys.A, new MoveCommand(player, Direction.LEFT));
-            controller.RegisterPressCommand(Keys.S, new MoveCommand(player, Direction.DOWN));
-            controller.RegisterPressCommand(Keys.D, new MoveCommand(player, Direction.RIGHT));
-            controller.RegisterReleasedCommand(Keys.W, new StopCommand(player, Direction.UP));
-            controller.RegisterReleasedCommand(Keys.A, new StopCommand(player, Direction.LEFT));
-            controller.RegisterReleasedCommand(Keys.S, new StopCommand(player, Direction.DOWN));
-            controller.RegisterReleasedCommand(Keys.D, new StopCommand(player, Direction.RIGHT));
+            controller.RegisterPressCommand(Keys.W, new MoveCommand(player, Direction.Up));
+            controller.RegisterPressCommand(Keys.A, new MoveCommand(player, Direction.Left));
+            controller.RegisterPressCommand(Keys.S, new MoveCommand(player, Direction.Down));
+            controller.RegisterPressCommand(Keys.D, new MoveCommand(player, Direction.Right));
+            controller.RegisterReleasedCommand(Keys.W, new StopCommand(player, Direction.Up));
+            controller.RegisterReleasedCommand(Keys.A, new StopCommand(player, Direction.Left));
+            controller.RegisterReleasedCommand(Keys.S, new StopCommand(player, Direction.Down));
+            controller.RegisterReleasedCommand(Keys.D, new StopCommand(player, Direction.Right));
             controller.RegisterPressCommand(Keys.J, new AttackCommand(player));
             controller.RegisterPressCommand(Keys.K, new UseSecondaryCommand(player));
             controller.RegisterPressCommand(Keys.E, new DamageCommand(player));
-            controller.RegisterPressCommand(Keys.Up, new SelectCommand(player, Direction.UP));
-            controller.RegisterPressCommand(Keys.Left, new SelectCommand(player, Direction.LEFT));
-            controller.RegisterPressCommand(Keys.Down, new SelectCommand(player, Direction.DOWN));
-            controller.RegisterPressCommand(Keys.Right, new SelectCommand(player, Direction.RIGHT));
+            controller.RegisterPressCommand(Keys.Up, new SelectCommand(player, Direction.Up));
+            controller.RegisterPressCommand(Keys.Left, new SelectCommand(player, Direction.Left));
+            controller.RegisterPressCommand(Keys.Down, new SelectCommand(player, Direction.Down));
+            controller.RegisterPressCommand(Keys.Right, new SelectCommand(player, Direction.Right));
         }
 
         public static void RegisterGameCommands(KeyboardController controller, Game1 game, ScreenManager screen)

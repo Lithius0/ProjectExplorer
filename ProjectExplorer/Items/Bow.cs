@@ -31,7 +31,7 @@ namespace ProjectExplorer.Items
         {
             if (player.Inventory.HasItem(Coin.Instance))
             {
-                Vector2 direction = player.Direction.GetVector2();
+                Vector2 direction = player.Direction.ToVector2();
                 Vector2 arrowPosition = player.GetTransform().Center.ToVector2() + direction * Tiling.TileLength;
                 player.Level.Register(new Arrow(arrowPosition, direction * Tiling.ToPixels(16), player, 0.5f));
                 SoundFactory.Instance.PlaySound("ArrowBoomerang");

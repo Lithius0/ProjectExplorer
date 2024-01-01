@@ -57,12 +57,12 @@ namespace ProjectExplorer.Character.Sprite
                 activeSprite.Stop();
                 switch (direction)
                 {
-                    case Direction.UP:
-                    case Direction.LEFT:
+                    case Direction.Up:
+                    case Direction.Left:
                         activeSprite = leftSprite;
                         break;
-                    case Direction.DOWN:
-                    case Direction.RIGHT:
+                    case Direction.Down:
+                    case Direction.Right:
                         activeSprite = rightSprite;
                         break;
                 }

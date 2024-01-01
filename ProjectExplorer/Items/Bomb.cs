@@ -37,7 +37,7 @@ namespace ProjectExplorer.Items
         {
             if (player.Inventory.HasItem(Instance))
             {
-                Vector2 target = player.GetTransform().Center.ToVector2() + player.Direction.GetVector2() * Tiling.TileLength;
+                Vector2 target = player.GetTransform().Center.ToVector2() + player.Direction.ToVector2() * Tiling.TileLength;
                 player.Level.Register(new PlacedBomb(2, target));
                 SoundFactory.Instance.PlaySound("BombDrop");
                 player.Inventory.RemoveItem(Instance);

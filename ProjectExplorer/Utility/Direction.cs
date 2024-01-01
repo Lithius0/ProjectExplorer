@@ -9,10 +9,10 @@ namespace ProjectExplorer
 {
     public enum Direction
     {
-        UP = 0,
-        DOWN = 1, 
-        LEFT = 2, 
-        RIGHT = 3,
+        Up = 0,
+        Down = 1, 
+        Left = 2, 
+        Right = 3,
     }
 
     public static class DirectionMethods
@@ -23,26 +23,26 @@ namespace ProjectExplorer
             switch(text)
             {
                 case "up":
-                    return Direction.UP;
+                    return Direction.Up;
                 case "down":
-                    return Direction.DOWN;
+                    return Direction.Down;
                 case "left":
-                    return Direction.LEFT;
+                    return Direction.Left;
                 case "right":
-                    return Direction.RIGHT;
+                    return Direction.Right;
                 default:
                     throw new ArgumentException($"{text} is not a valid direction!");
             }
         }
 
-        public static Vector2 GetVector2(this Direction d)
+        public static Vector2 ToVector2(this Direction d)
         {
             return d switch
             {
-                Direction.UP => -Vector2.UnitY,
-                Direction.DOWN => Vector2.UnitY,
-                Direction.LEFT => -Vector2.UnitX,
-                Direction.RIGHT => Vector2.UnitX,
+                Direction.Up => -Vector2.UnitY,
+                Direction.Down => Vector2.UnitY,
+                Direction.Left => -Vector2.UnitX,
+                Direction.Right => Vector2.UnitX,
                 _ => throw new NotImplementedException(),
             };
         }
@@ -51,27 +51,27 @@ namespace ProjectExplorer
         {
             return d switch
             {
-                Direction.UP => Direction.DOWN,
-                Direction.DOWN => Direction.UP,
-                Direction.LEFT => Direction.RIGHT,
-                Direction.RIGHT => Direction.LEFT,
+                Direction.Up => Direction.Down,
+                Direction.Down => Direction.Up,
+                Direction.Left => Direction.Right,
+                Direction.Right => Direction.Left,
                 _ => throw new NotImplementedException(),
             };
         }
 
-        public static Direction GetDirection(Vector2 v)
+        public static Direction ParseVector(Vector2 v)
         {
             if(v.Equals(Vector2.UnitY))
-                return Direction.DOWN;
+                return Direction.Down;
 
             if(v.Equals(Vector2.UnitX))
-                return Direction.RIGHT;
+                return Direction.Right;
 
             if(v.Equals(-Vector2.UnitY))
-                return Direction.UP;
+                return Direction.Up;
 
             if(v.Equals(-Vector2.UnitX))
-                return Direction.LEFT;
+                return Direction.Left;
 
             throw new NotImplementedException();
         }

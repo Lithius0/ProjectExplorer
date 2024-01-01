@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ProjectExplorer.SpriteUtil;
+using ProjectExplorer.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,8 +24,16 @@ namespace ProjectExplorer.Character.Sprite
         {
             this.character = character;
             previousDirection = character.Direction;
-            leftSprite = new SimpleAnimatedSprite(SpriteManager.GetTexture("Slime"), new Rectangle(0, 16, 16, 16), character, 3, 1 / 6f, true);
-            rightSprite = new SimpleAnimatedSprite(SpriteManager.GetTexture("Slime"), new Rectangle(0, 0, 16, 16), character, 3, 1 / 6f, true);
+            leftSprite = new SimpleAnimatedSprite(SpriteManager.GetTexture("Slime"), new Rectangle(0, 32, 16, 32), character, 6, 1 / 7f, true)
+            {
+                Layer = LayerConstants.Enemy,
+                Offset = new Vector2(0, -8),
+            };
+            rightSprite = new SimpleAnimatedSprite(SpriteManager.GetTexture("Slime"), new Rectangle(0, 0, 16, 32), character, 6, 1 / 7f, true)
+            {
+                Layer = LayerConstants.Enemy,
+                Offset = new Vector2(0, -8),
+            };
             activeSprite = leftSprite;
 
             leftSprite.ReachedEnd += OnReachedEnd;

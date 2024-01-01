@@ -27,11 +27,17 @@ namespace ProjectExplorer.Character.Sprite
             if (twoHanded)
             {
                 startSource = new Rectangle(208, 0, 32, 32);
-                itemSprite = item.GetSprite(position + new Vector2(8, -8));
+                itemSprite = new BaseSprite(item.GetSprite())
+                {
+                    Offset = position + new Vector2(0, -8),
+                };
             }
             else
             {
-                itemSprite = item.GetSprite(position + new Vector2(0, -8));
+                itemSprite = new BaseSprite(item.GetSprite())
+                {
+                    Offset = position + new Vector2(-4, -8),
+                };
             }
 
             Layer = LayerConstants.Player;

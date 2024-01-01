@@ -11,7 +11,7 @@ namespace ProjectExplorer.Character.Sprite
 {
     public class AttackSprite : PlayerSubsprite
     {
-        public AttackSprite(Texture2D texture, Rectangle source, ISticky sticky, IPlayer player, int frames = 3) : base(texture, source, sticky, player, frames, PlayerConfig.AttackDuration / frames, false)
+        public AttackSprite(Texture2D texture, Rectangle source, IPlayer player, int frames = 3) : base(texture, source, player, frames, PlayerConfig.AttackDuration / frames, false)
         {
         }
 

@@ -39,19 +39,21 @@ namespace ProjectExplorer.SpriteUtil
         protected bool playing = false;
 
 
-        public SimpleAnimatedSprite(Texture2D texture, Rectangle source, Vector2 position, int frames, float delay, bool repeat = true) : base(texture, source, position)
+        public SimpleAnimatedSprite(Texture2D texture, Rectangle source, Vector2 position, int frames, float delay, bool repeat = true) : base(texture, source)
         {
             startSource = source;
             this.frames = frames;
             this.delay = delay;
             this.repeat = repeat;
+            Offset = position; // TODO, maybe remove this? Or add overloads without it.
         }
-        public SimpleAnimatedSprite(Texture2D texture, Rectangle source, ISticky sticky, int frames, float delay, bool repeat = true) : base(texture, source, sticky)
+        public SimpleAnimatedSprite(Texture2D texture, Rectangle source, IGameObject attached, int frames, float delay, bool repeat = true) : base(texture, source)
         {
             startSource = source;
             this.frames = frames;
             this.delay = delay;
             this.repeat = repeat;
+            AttachedObject = attached;
         }
 
         public IAnimatedSprite Play()

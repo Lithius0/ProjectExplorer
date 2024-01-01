@@ -25,6 +25,8 @@ namespace ProjectExplorer.Tiles
 
         public CollisionGroup Group => CollisionGroup.Tiles;
 
+        public Vector2 Position { get; set; }
+
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             // Empty

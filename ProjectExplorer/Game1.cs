@@ -12,7 +12,6 @@ using ProjectExplorer.DebugMode;
 using ProjectExplorer.UI;
 using ProjectExplorer.SoundEffects;
 using ProjectExplorer.SpriteUtil;
-using ProjectExplorer.Tiles.ControlTiles;
 using ProjectExplorer.Utility;
 
 namespace ProjectExplorer

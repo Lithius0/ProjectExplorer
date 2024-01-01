@@ -25,9 +25,9 @@ namespace ProjectExplorer.Items
         {
         }
         
-        public ISprite GetSprite(Vector2 position)
+        public SpriteDefinition GetSprite()
         {
-            return ItemSpriteFactory.Instance.GetStarterSwordSprite(position);
+            return SpriteManager.GetSpriteDefinition("Items", new Rectangle(0, 16, 16, 16));
         }
 
         public void Pickup(IPlayer player, int amount = 1)

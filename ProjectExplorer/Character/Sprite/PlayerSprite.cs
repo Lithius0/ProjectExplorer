@@ -25,23 +25,23 @@ namespace ProjectExplorer.Character.Sprite
         private IDictionary<Direction, IAnimatedSprite> moveSprites;
         private IDictionary<Direction, IAnimatedSprite> attackSprites;
 
-        public PlayerSprite(IPlayer player, ISticky sticky)
+        public PlayerSprite(IPlayer player)
         {
             this.player = player;
 
             moveSprites = new Dictionary<Direction, IAnimatedSprite>
             {
-                { Direction.UP, PlayerSpriteFactory.Instance.GetPlayerMoveSprite(Direction.UP, player, sticky) },
-                { Direction.DOWN, PlayerSpriteFactory.Instance.GetPlayerMoveSprite(Direction.DOWN, player, sticky) },
-                { Direction.LEFT, PlayerSpriteFactory.Instance.GetPlayerMoveSprite(Direction.LEFT, player, sticky) },
-                { Direction.RIGHT, PlayerSpriteFactory.Instance.GetPlayerMoveSprite(Direction.RIGHT, player, sticky) }
+                { Direction.UP, PlayerSpriteFactory.Instance.GetPlayerMoveSprite(Direction.UP, player) },
+                { Direction.DOWN, PlayerSpriteFactory.Instance.GetPlayerMoveSprite(Direction.DOWN, player) },
+                { Direction.LEFT, PlayerSpriteFactory.Instance.GetPlayerMoveSprite(Direction.LEFT, player) },
+                { Direction.RIGHT, PlayerSpriteFactory.Instance.GetPlayerMoveSprite(Direction.RIGHT, player) }
             };
             attackSprites = new Dictionary<Direction, IAnimatedSprite>
             {
-                { Direction.UP, PlayerSpriteFactory.Instance.GetPlayerAttackingSprite(Direction.UP, player, sticky) },
-                { Direction.DOWN, PlayerSpriteFactory.Instance.GetPlayerAttackingSprite(Direction.DOWN, player, sticky) },
-                { Direction.LEFT, PlayerSpriteFactory.Instance.GetPlayerAttackingSprite(Direction.LEFT, player, sticky) },
-                { Direction.RIGHT, PlayerSpriteFactory.Instance.GetPlayerAttackingSprite(Direction.RIGHT, player, sticky) }
+                { Direction.UP, PlayerSpriteFactory.Instance.GetPlayerAttackingSprite(Direction.UP, player) },
+                { Direction.DOWN, PlayerSpriteFactory.Instance.GetPlayerAttackingSprite(Direction.DOWN, player) },
+                { Direction.LEFT, PlayerSpriteFactory.Instance.GetPlayerAttackingSprite(Direction.LEFT, player) },
+                { Direction.RIGHT, PlayerSpriteFactory.Instance.GetPlayerAttackingSprite(Direction.RIGHT, player) }
             };
 
             player.StateMachine.StateChanged += OnStateChanged;

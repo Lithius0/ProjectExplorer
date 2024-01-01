@@ -12,12 +12,11 @@ using ProjectExplorer.SpriteUtil;
 
 namespace ProjectExplorer.Character
 {
-    public interface ICharacter : IGameObject, ISticky
+    public interface ICharacter : IGameObject
     {
         public float MaxHealth { get; set; }
         public float Health { get; set; }
         public Direction Direction { get; set; }
-        public Vector2 Position { get; set; }
         public ILevel Level { get; }
         public bool RecentlyDamaged { get; }
         /// <summary>

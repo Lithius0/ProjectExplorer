@@ -23,8 +23,9 @@ namespace ProjectExplorer.Items
     {
         private float fuse; // Amount of time remaining until the bomb explodes.
         private ILevel level;
-        private Vector2 position;
         private ISprite sprite;
+
+        public Vector2 Position { get; set; }
 
         public bool Exploded
         {
@@ -34,9 +35,13 @@ namespace ProjectExplorer.Items
         public PlacedBomb(float fuse, Vector2 position)
         {
             this.fuse = fuse;
-            this.position = position;
+            Position = position;
 
-            sprite = ItemSpriteFactory.Instance.GetBombSprite(position);
+            sprite = new BaseSprite(Bomb.Instance.GetSprite())
+            {
+                Layer = LayerConstants.Item,
+                AttachedObject = this,
+            };
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -49,7 +54,7 @@ namespace ProjectExplorer.Items
             fuse -= (float)gameTime.ElapsedGameTime.TotalSeconds;
             if (fuse <= 0)
             {
-                level.Register(new Explosion(position));
+                level.Register(new Explosion(Position));
                 SoundFactory.Instance.PlaySound("BombBlow");
                 level?.Deregister(this);
             }

@@ -19,11 +19,10 @@ namespace ProjectExplorer.Items.ItemEntities
     /// The physical representation of an item as a object.
     /// By default, objects of this class just sit there as an object waiting for a collision.
     /// </summary>
-    public class ItemEntity : IGameObject, ICollidable, IItemDispenser, ISticky, IMitotic
+    public class ItemEntity : IGameObject, ICollidable, IItemDispenser, IMitotic
     {
         protected int amount;
         protected IItem item;
-        protected Vector2 position;
         protected readonly Vector2 initialPosition;
         protected ISprite sprite;
         protected Point size = Tiling.Full;
@@ -32,8 +31,7 @@ namespace ProjectExplorer.Items.ItemEntities
 
         protected ICollisionHandler collisionHandler;
 
-        public Vector2 Position
-        { get { return position; } }
+        public Vector2 Position { get; set; }
 
         public CollisionGroup Group => CollisionGroup.Items;
 
@@ -47,12 +45,12 @@ namespace ProjectExplorer.Items.ItemEntities
 
         public ItemEntity(IItem item, Vector2 position, Point size, int amount = 1) 
         {
-            sprite = item.GetSprite(position);
-            if (sprite is IStickable stickable)
+            sprite = new BaseSprite(item.GetSprite())
             {
-                stickable.StickTo(this);
-            }
-            this.position = position;
+                Layer = LayerConstants.Item,
+                AttachedObject = this,
+            };
+            Position = position;
             this.size = size;
             this.item = item;
             this.amount = amount;
@@ -88,7 +86,7 @@ namespace ProjectExplorer.Items.ItemEntities
 
         public Rectangle GetCollider()
         {
-            return Positioning.ConstructFromAnchorPoint(position, size, AnchorPoints.Middle);
+            return Positioning.ConstructFromAnchorPoint(Position, size, AnchorPoints.Middle);
         }
 
         public ICollisionHandler GetCollisionHandler()

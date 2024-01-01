@@ -15,7 +15,7 @@ namespace ProjectExplorer.Items.Sprites
         private static readonly Rectangle Source = new(0, 48, 16, 16);
         public HeartSprite(Texture2D texture, Vector2 position) : base(texture, Source, position, 4, 0.2f)
         {
-            Position = position;
+            Offset = position;
             Layer = LayerConstants.Item;
             delay = 0.1f;
         }

@@ -36,14 +36,14 @@ namespace ProjectExplorer.Projectiles
             offset = direction.GetVector2() * offsetLength;
             // Initial positioning of the sword.
             angle = -sweepAngle;
-            position = owner.GetTransform().Center.ToVector2() + Positioning.Rotate(offset, angle);
+            Position = owner.Position + Positioning.Rotate(offset, angle);
             removeAfterDraw = true;
         }
 
         public override void Update(GameTime gameTime)
         {
             angle = MathHelper.Lerp(-sweepAngle, sweepAngle, age / PlayerConfig.AttackDuration);
-            position = owner.GetTransform().Center.ToVector2() + Positioning.Rotate(offset, angle);
+            Position = owner.Position + Positioning.Rotate(offset, angle);
             age += (float)gameTime.ElapsedGameTime.TotalSeconds;
             if (age > PlayerConfig.AttackDuration)
                 Remove();

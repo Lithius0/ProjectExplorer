@@ -25,10 +25,8 @@ namespace ProjectExplorer.Items
         public bool Use(IPlayer player);
 
         /// <summary>
-        /// Gets the sprite for this object.
+        /// Gets the sprite for this item.
         /// </summary>
-        /// <param name="position">Position sprite will be placed at</param>
-        /// <returns></returns>
-        public ISprite GetSprite(Vector2 position);
+        public SpriteDefinition GetSprite();
     }
 }

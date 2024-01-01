@@ -23,6 +23,8 @@ namespace ProjectExplorer.Tiles
         // Purely here for cloning.
         protected string texture;
         protected Rectangle source;
+        
+        public Vector2 Position { get; set; }
 
         public BackgroundTile(ISprite sprite)
         {
@@ -30,11 +32,13 @@ namespace ProjectExplorer.Tiles
         }
         public BackgroundTile(Vector2 position, string texture, Rectangle source)
         {
-            sprite = new BaseSprite(SpriteManager.GetTexture(texture), source, position)
+            sprite = new BaseSprite(SpriteManager.GetTexture(texture), source)
             {
                 AnchorPoint = AnchorPoints.TopLeft,
-                Layer = LayerConstants.Background
+                Layer = LayerConstants.Background,
+                AttachedObject = this,
             };
+            Position = position;
             this.texture = texture;
             this.source = source;
         }

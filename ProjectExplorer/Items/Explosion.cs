@@ -17,16 +17,16 @@ namespace ProjectExplorer.Items
     public class Explosion : IGameObject, ICollidable
     {
         private ILevel level;
-        private Vector2 position;
         private float lifetime = 7/10f;
         private float damageTime = 0.1f;
         private float age = 0;
         private IAnimatedSprite sprite;
         private ICollisionHandler collisionHandler;
+        public Vector2 Position { get; set; }
 
         public Explosion(Vector2 position)
         {
-            this.position = position;
+            Position = position;
             sprite = new ExplosionSprite(position).Play();
             collisionHandler = new ExplosionCollision();
         }
@@ -40,7 +40,7 @@ namespace ProjectExplorer.Items
 
         public Rectangle GetCollider()
         {
-            return Positioning.ConstructFromAnchorPoint(position, Tiling.Full, AnchorPoints.Middle);
+            return Positioning.ConstructFromAnchorPoint(Position, Tiling.Full, AnchorPoints.Middle);
         }
 
         public ICollisionHandler GetCollisionHandler()

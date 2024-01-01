@@ -20,13 +20,23 @@ namespace ProjectExplorer.Tiles
             set { textSprite.Text = value; }
         }
 
+        public Vector2 Position { get; set; }
+
         public TextTile(string font, Vector2 position, string text = "") 
         {
-            textSprite = new TextSprite(font, position, text);
+            textSprite = new TextSprite(font, text)
+            {
+                AttachedObject = this,
+            };
+            Position = position;
         }
         public TextTile(SpriteFont font, Vector2 position, string text = "")
         {
-            textSprite = new TextSprite(font, position, text);
+            textSprite = new TextSprite(font, text)
+            {
+                AttachedObject = this,
+            };
+            Position = position;
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)

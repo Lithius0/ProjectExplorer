@@ -15,6 +15,7 @@ namespace ProjectExplorer.Scripts
     {
         private IGameObject obj;
         private ILevel level;
+        public Vector2 Position { get; set; }
 
         public RewardOnClearScript(IGameObject obj)
         {

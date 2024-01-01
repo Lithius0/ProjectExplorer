@@ -14,7 +14,7 @@ namespace ProjectExplorer.Projectiles.Sprites
     {
         private static readonly Rectangle Source = new(96, 0, 8, 16);
 
-        public SwordExplosionSprite(Texture2D texture, ISticky sticky, Vector2 velocity) : base(texture, Source, sticky, 4, 1/15f)
+        public SwordExplosionSprite(Texture2D texture, IGameObject attached, Vector2 velocity) : base(texture, Source, attached, 4, 1/15f)
         {
             SpriteEffects flip = SpriteEffects.None;
 

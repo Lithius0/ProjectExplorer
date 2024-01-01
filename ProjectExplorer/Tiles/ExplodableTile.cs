@@ -25,6 +25,8 @@ namespace ProjectExplorer.Tiles
         private string linkedTag;
         public CollisionGroup Group => tile.Group;
 
+        public Vector2 Position { get; set; }
+
         public ExplodableTile(ForegroundTile tile, string linkedLevelId, string linkedTag)
         {
             this.tile = tile;

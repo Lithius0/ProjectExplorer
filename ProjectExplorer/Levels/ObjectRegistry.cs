@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using ProjectExplorer.Utility;
 using ProjectExplorer.Items;
-using ProjectExplorer.Tiles.ControlTiles;
 using ProjectExplorer.Scripts;
 using ProjectExplorer.SpriteUtil.Text;
 using ProjectExplorer.SpriteUtil;
@@ -50,7 +49,7 @@ namespace ProjectExplorer.Levels
             registry["text"] = new TextTile("DuskB3", Vector2.Zero, "Sample Text");
 
             // ExplodableTile
-            registry["explodable"] = new ExplodableTile(new ForegroundTile(new Rectangle(0, 0, 16, 16), BaseSprite.GetMissingSprite(Vector2.Zero)));
+            registry["explodable"] = new ExplodableTile(new ForegroundTile(new Vector2(0, 0), BaseSprite.GetMissingSprite()));
 
             // Items
             registry["bomb"] = new ItemEntity(Bomb.Instance, Vector2.Zero, Tiling.Full);

@@ -22,10 +22,9 @@ namespace ProjectExplorer.Projectiles
     /// For the most part, subclasses should implement the motion.
     /// This class only has basic linear motion.
     /// </summary>
-    public abstract class Projectile : IGameObject, ICollidable, ISticky
+    public abstract class Projectile : IGameObject, ICollidable
     {
         protected int damage;
-        protected Vector2 position; // Center of the projectile
         protected Point size = Tiling.Full;
         protected Vector2 velocity = Vector2.Zero;
         protected ICollisionHandler collisionHandler;
@@ -35,11 +34,10 @@ namespace ProjectExplorer.Projectiles
         protected bool removeAfterDraw = false;
 
         private bool removed = false;
-
+        
+        public Vector2 Position { get; set; }
         public ICharacter Owner
         { get { return owner; } }
-        public Vector2 Position
-        { get { return position; } }
         public Vector2 Velocity
         { get { return velocity; } }
         public int Damage
@@ -53,7 +51,7 @@ namespace ProjectExplorer.Projectiles
         protected Projectile(Vector2 position, Vector2 velocity, ICharacter owner, int damage = 1)
         {
             this.damage = damage;
-            this.position = position;
+            Position = position;
             this.velocity = velocity;
             this.owner = owner;
             collisionHandler = new ProjectileCollisionHandler(this);
@@ -62,7 +60,7 @@ namespace ProjectExplorer.Projectiles
         protected Projectile(ICharacter owner, float speed, int damage = 1)
         {
             this.damage = damage;
-            position = Positioning.GetCenter(owner.Position, size) + owner.Direction.GetVector2() * Tiling.ToPixels(0.5f);
+            Position = owner.Position + owner.Direction.GetVector2() * Tiling.ToPixels(0.5f);
             velocity = owner.Direction.GetVector2() * speed;
             this.owner = owner;
             collisionHandler = new ProjectileCollisionHandler(this);
@@ -77,7 +75,7 @@ namespace ProjectExplorer.Projectiles
 
         public virtual Rectangle GetCollider()
         {
-            return Positioning.ConstructFromAnchorPoint(position, Tiling.Full, AnchorPoints.Middle);
+            return Positioning.ConstructFromAnchorPoint(Position, Tiling.Full, AnchorPoints.Middle);
         }
 
         public ICollisionHandler GetCollisionHandler()
@@ -93,7 +91,7 @@ namespace ProjectExplorer.Projectiles
         public virtual void Update(GameTime gameTime)
         {
             // General projectile physics, override as necessary
-            position += velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            Position += velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
         /// <summary>

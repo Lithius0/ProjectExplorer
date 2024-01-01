@@ -41,9 +41,9 @@ namespace ProjectExplorer.Items
             return false;
         }
 
-        public ISprite GetSprite(Vector2 position)
+        public SpriteDefinition GetSprite()
         {
-            return ItemSpriteFactory.Instance.GetBowSprite(position);
+            return new SpriteDefinition("Items", 0, 96, 16, 16);
         }
 
         public override string ToString()

@@ -14,6 +14,7 @@ namespace ProjectExplorer
     /// </summary>
     public interface IGameObject
     {
+        public Vector2 Position { get; set; }
         /// <summary>
         /// This method will be called whenever the GameObject is registered to a level.
         /// Implementation should save the arguments for deregistration later if it's a temporary object.
@@ -28,6 +29,5 @@ namespace ProjectExplorer
         /// Most of the time this should just trigger an ISprite draw call.
         /// </summary>
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch);
-
     }
 }

@@ -12,7 +12,7 @@ using System;
 
 namespace ProjectExplorer.Character
 {
-    class Player : BaseCharacter, IPlayer, ISticky
+    class Player : BaseCharacter, IPlayer
     {
         private readonly IInventory inventory;
         private readonly IItemSelector selector;
@@ -41,7 +41,7 @@ namespace ProjectExplorer.Character
             collisionHandler = new PlayerCollision(this);
 
             // Sprite requires the state machine and needs to come afterwards
-            sprite = new PlayerSprite(this, this);
+            sprite = new PlayerSprite(this);
 
             maxHealth = PlayerConfig.StartingHealth;
             Health = PlayerConfig.StartingHealth;

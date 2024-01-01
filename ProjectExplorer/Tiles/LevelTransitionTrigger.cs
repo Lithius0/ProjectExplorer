@@ -17,6 +17,11 @@ namespace ProjectExplorer.Tiles
         private Direction direction;
         public CollisionGroup Group => CollisionGroup.Triggers;
 
+        public Vector2 Position {
+            get { return collider.Location.ToVector2(); } 
+            set { collider.Location = value.ToPoint(); }
+        }
+
         public LevelTransitionTrigger(Point position, Point size, string level, Direction direction, Vector2? destination = null)
         {
             collider = new Rectangle(position, size);

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProjectExplorer.SpriteUtil.Text;
+using ProjectExplorer.Utility;
 
 namespace ProjectExplorer.UI
 {
@@ -19,15 +20,25 @@ namespace ProjectExplorer.UI
         private Vector2 position;
         private TextSprite amountDisplay;
         private ISprite borderSprite;
+        private ItemLabel secondaryItem;
 
         public SecondaryEquippedItem(Vector2 position)
         {
-            this.position = position;
-            amountDisplay = new TextSprite("DuskB3", this.position + new Vector2(32, 32), "0");
-            borderSprite = new BaseSprite(SpriteManager.GetTexture("Hud"), Source, position)
+            amountDisplay = new TextSprite("DuskB3", "0")
             { 
+                Offset = position + new Vector2(32, 32) 
+            };
+            borderSprite = new BaseSprite(new SpriteDefinition("Hud", Source))
+            {
+                Offset = position,
                 AnchorPoint = AnchorPoints.TopLeft,
                 Color = Color.Blue,
+            };
+            secondaryItem = new ItemLabel()
+            {
+                Offset = position + Source.Size.ToVector2() / 2,
+                AnchorPoint = AnchorPoints.Middle,
+                Layer = 1,
             };
         }
 
@@ -39,8 +50,8 @@ namespace ProjectExplorer.UI
             if (secondary != null)
             {
                 int amount = player.Inventory.AmountOf(secondary);
-                ISprite sprite = secondary.GetSprite(position + Source.Size.ToVector2() / 2);
-                sprite.Draw(gametime, spriteBatch);
+                secondaryItem.Item = secondary;
+                secondaryItem.Draw(gametime, spriteBatch);
                 amountDisplay.Text = amount.ToString();
                 amountDisplay.Draw(gametime, spriteBatch);
             }

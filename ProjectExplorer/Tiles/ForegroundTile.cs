@@ -15,33 +15,36 @@ namespace ProjectExplorer.Tiles
 {
     /// <summary>
     /// Foreground tile class
+    /// TODO: Allow variable sizes
     /// </summary>
     public class ForegroundTile : IGameObject, ICollidable, IMitotic
     {
         protected ISprite sprite;
-        protected Rectangle transform;
+        protected Point size;
         protected ILevel level;
         protected ICollisionHandler collisionHandler;
 
         protected string texture;
         protected Rectangle source;
 
+        public Vector2 Position { get; set; }
         public CollisionGroup Group => CollisionGroup.Tiles;
 
-        public ForegroundTile(Rectangle rectangle, ISprite sprite)
+        public ForegroundTile(Vector2 position, ISprite sprite)
         {
             this.sprite = sprite;
-            transform = rectangle;
+            Position = position;
             collisionHandler = new TileCollisionHandler();
         }
         public ForegroundTile(Vector2 position, string texture, Rectangle source)
         {
-            sprite = new BaseSprite(SpriteManager.GetTexture(texture), source, position)
+            sprite = new BaseSprite(new SpriteDefinition(texture, source))
             {
                 AnchorPoint = AnchorPoints.TopLeft,
-                Layer = LayerConstants.Foreground
+                Layer = LayerConstants.Foreground,
+                AttachedObject = this,
             };
-            transform = new Rectangle(position.ToPoint(), source.Size);
+            Position = position;
             collisionHandler = new TileCollisionHandler();
             this.texture = texture;
             this.source = source;
@@ -54,7 +57,7 @@ namespace ProjectExplorer.Tiles
 
         public Rectangle GetCollider()
         {
-            return transform;
+            return new Rectangle(Position.ToPoint(), Tiling.Full);
         }
 
         public virtual ICollisionHandler GetCollisionHandler()

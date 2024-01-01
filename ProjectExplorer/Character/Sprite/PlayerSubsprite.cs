@@ -17,9 +17,10 @@ namespace ProjectExplorer.Character.Sprite
     {
         private IPlayer player;
 
-        public PlayerSubsprite(Texture2D texture, Rectangle source, ISticky sticky, IPlayer player, int frames, float delay, bool repeat) : base(texture, source, sticky, frames, delay, repeat)
+        public PlayerSubsprite(SpriteDefinition spriteDefinition, IPlayer player, int frames) : base(spriteDefinition, frames)
         {
             this.player = player;
+            AttachedObject = player;
             Layer = LayerConstants.Player;
         }
 

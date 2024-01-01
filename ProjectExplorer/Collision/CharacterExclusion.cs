@@ -19,6 +19,9 @@ namespace ProjectExplorer.Collision
 
         public CollisionGroup Group => CollisionGroup.Triggers;
 
+        // TODO: Make this functional
+        public Vector2 Position { get; set; }
+
         public CharacterExclusion(ICharacter character)
         {
             this.character = character;

@@ -25,15 +25,15 @@ namespace ProjectExplorer.Items
         {
         }
         
-        public ISprite GetSprite(Vector2 position)
+        public SpriteDefinition GetSprite()
         {
-            return ItemSpriteFactory.Instance.GetStarterSwordSprite(position);
+            return new SpriteDefinition("Items", 0, 16, 16, 16);
         }
 
         public void Pickup(IPlayer player, int amount = 1)
         {
             player.Inventory.AddItem(Instance, amount);
-            player.PlayAnimation(PlayerSpriteFactory.Instance.GetPickupSprite(player.Position, Instance, 1, false), true);
+            player.PlayAnimation(PlayerSpriteFactory.Instance.GetPickupSprite(player, Instance, 1), true);
         }
 
         public bool Use(IPlayer player)

@@ -11,18 +11,25 @@ using System.Diagnostics;
 
 public class CoinCount : ISprite
 {
-    private Vector2 position;
     private TextSprite amountDisplay;
+    private ISprite coinSprite;
 
     public CoinCount(Vector2 position)
     {
-        this.position = position;
-        amountDisplay = new TextSprite("DuskB3", position, "");
+        amountDisplay = new TextSprite("DuskB3", "")
+        {
+            Offset = position,
+        };
+        coinSprite = new BaseSprite(Coin.Instance.GetSprite())
+        { 
+            Offset = position,
+        };
+
     }
 
     public void Draw(GameTime gametime, SpriteBatch spriteBatch)
     {
-        Coin.Instance.GetSprite(position).Draw(gametime, spriteBatch);
+        coinSprite.Draw(gametime, spriteBatch);
 
         int coins = Coordinator.Instance.Player.Inventory.AmountOf(Coin.Instance);
 

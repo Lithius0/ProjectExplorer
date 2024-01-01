@@ -29,12 +29,6 @@
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Collision\SliderCollisionHandler.cs">
-      <Generator></Generator>
-      <CustomToolNamespace></CustomToolNamespace>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <None Update="Content\Sprites\Missing.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>

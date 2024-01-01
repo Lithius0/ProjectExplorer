@@ -70,8 +70,8 @@
     },
     {
       "ObjectId": "slime",
-      "TileX": 20,
-      "TileY": 11
+      "TileX": 5,
+      "TileY": 5
     }
   ]
 }

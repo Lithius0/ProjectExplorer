@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ProjectExplorer.Character
 {
-    public abstract class BaseCharacter : ICharacter, ICollidable, ISticky
+    public abstract class BaseCharacter : ICharacter, ICollidable
     {
         protected Vector2 position;
         protected Point size = Tiling.Full;

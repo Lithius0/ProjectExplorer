@@ -22,7 +22,6 @@ namespace ProjectExplorer.UI
         public IScreen CreateInventoryHud(Vector2 position, LevelManager levelManager)
         {
             IScreen inventoryHud = new Screen(position, 10);
-            inventoryHud.AddModule(new InventoryDisplay(levelManager.Player, levelManager));
             return inventoryHud;
         }
     }

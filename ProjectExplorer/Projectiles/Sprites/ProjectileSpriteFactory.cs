@@ -28,7 +28,7 @@ namespace ProjectExplorer.Projectiles.Sprites
 
         public ISprite GetArrowSprite(Arrow arrow)
         {
-            return new ArrowSprite(SpriteManager.GetTexture("Projectiles"), arrow);
+            return new ArrowSprite(new SpriteDefinition("Projectiles", 0, 0, 16, 16), arrow);
         }
         public ISprite GetSwordSweepSprite(SwordSweep sword)
         {

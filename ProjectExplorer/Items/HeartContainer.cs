@@ -20,9 +20,9 @@ namespace ProjectExplorer.Items
         {
         }
 
-        public ISprite GetSprite(Vector2 position)
+        public SpriteDefinition GetSprite()
         {
-            return ItemSpriteFactory.Instance.GetHeartContainerSprite(position);
+            return new SpriteDefinition("Objects", 64, 0, 16, 16);
         }
 
         public void Pickup(IPlayer player, int amount)

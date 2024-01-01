@@ -19,9 +19,9 @@ namespace ProjectExplorer.SpriteUtil
     {
         protected Rectangle startSource;
         protected int frames; // Number of frames to animated
-        protected bool repeat = true; // If true, animation will repeat
         protected float delay = 0.03f; // Time delay between frames (seconds)
         protected double age = 0; // Time since last frame
+        protected bool playing = false;
 
         public event EventHandler OnPlay;
         public event EventHandler OnStop;
@@ -36,22 +36,22 @@ namespace ProjectExplorer.SpriteUtil
         {
             get { return Math.Clamp(NextFrame, 0, frames - 1); }
         }
-        protected bool playing = false;
-
-
-        public SimpleAnimatedSprite(Texture2D texture, Rectangle source, Vector2 position, int frames, float delay, bool repeat = true) : base(texture, source, position)
-        {
-            startSource = source;
-            this.frames = frames;
-            this.delay = delay;
-            this.repeat = repeat;
+        public bool Repeat { get; set; } = true; // If true, animation will repeat
+        public float Delay
+        { 
+            get { return delay; } 
+            set { delay = Math.Max(value, 0.001f); }
         }
-        public SimpleAnimatedSprite(Texture2D texture, Rectangle source, ISticky sticky, int frames, float delay, bool repeat = true) : base(texture, source, sticky)
+
+        public float Duration
+        {
+            get { return delay * frames; }
+            set { delay = value / frames; }
+        }
+        public SimpleAnimatedSprite(SpriteDefinition definition, int frames) : base(definition)
         {
             startSource = source;
             this.frames = frames;
-            this.delay = delay;
-            this.repeat = repeat;
         }
 
         public IAnimatedSprite Play()
@@ -82,7 +82,7 @@ namespace ProjectExplorer.SpriteUtil
                 if (NextFrame >= frames)
                 {
                     ReachedEnd?.Invoke(this, EventArgs.Empty);
-                    if (repeat)
+                    if (Repeat)
                         age = 0; // This is to keep age at a reasonable number. Otherwise it would grow without bounds.
                     else
                         playing = false;

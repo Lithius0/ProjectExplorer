@@ -14,12 +14,11 @@ namespace ProjectExplorer.Items.Sprites
 {
     public class ArrowSprite : BaseSprite
     {
-        private static readonly Rectangle Source = new(0, 0, 16, 16);
-
-        public ArrowSprite(Texture2D texture, Arrow arrow) : base(texture, Source, arrow)
+        public ArrowSprite(SpriteDefinition spriteDefinition, Arrow arrow) : base(spriteDefinition)
         {
             Rotation = RotationFromVelocity(arrow.Velocity);
             Layer = LayerConstants.Projectile;
+            AttachedObject = arrow;
         }
     }
 }

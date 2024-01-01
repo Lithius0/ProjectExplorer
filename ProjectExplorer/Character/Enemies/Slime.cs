@@ -17,6 +17,7 @@ namespace ProjectExplorer.Character.Enemies
         private IAnimatedSprite sprite;
         private bool moving = false;
         private float moveTimer = 2;
+        protected float speed = 15;
 
         public Slime(Vector2 position)
         {
@@ -51,7 +52,7 @@ namespace ProjectExplorer.Character.Enemies
 
             if (moving)
             {
-                position += direction.GetVector2() * (float)gameTime.ElapsedGameTime.TotalSeconds * 5;
+                position += direction.GetVector2() * (float)gameTime.ElapsedGameTime.TotalSeconds * speed;
             }
             
         }

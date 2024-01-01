@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjectExplorer.Utility;
 
 namespace ProjectExplorer.UI
 {
@@ -15,16 +16,22 @@ namespace ProjectExplorer.UI
     {
         private static Rectangle Source = new(0, 0, 48, 48);
 
-        private Vector2 position;
         private ISprite borderSprite;
+        private ItemLabel primaryItem;
 
         public PrimaryEquippedItem(Vector2 position)
         {
-            this.position = position;
-            borderSprite = new BaseSprite(SpriteManager.GetTexture("Hud"), Source, position)
+            borderSprite = new BaseSprite(new SpriteDefinition("Hud", Source))
             {
+                Offset = position,
                 AnchorPoint = AnchorPoints.TopLeft,
                 Color = Color.Red,
+            };
+            primaryItem = new ItemLabel()
+            {
+                Offset = position + Source.Size.ToVector2() / 2,
+                AnchorPoint = AnchorPoints.Middle,
+                Layer = 1,
             };
         }
 
@@ -35,8 +42,8 @@ namespace ProjectExplorer.UI
 
             if (primary != null)
             {
-                ISprite sprite = primary.GetSprite(position + Source.Size.ToVector2() / 2);
-                sprite.Draw(gametime, spriteBatch);
+                primaryItem.Item = primary;
+                primaryItem.Draw(gametime, spriteBatch);
             }
             borderSprite.Draw(gametime, spriteBatch);
         }

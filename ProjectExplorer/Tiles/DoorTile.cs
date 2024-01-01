@@ -21,8 +21,8 @@ namespace ProjectExplorer.Tiles
         protected ISprite spriteOpen;
         protected ISprite spriteClosed;
         protected bool openStatus;
-        protected Rectangle transform;
 
+        public Vector2 Position { get; set; }
         public bool OpensWithAnyKey { get; set; }
 
         public DoorTile(Vector2 position, ISprite spriteOpen, ISprite spriteClosed, bool openStatus, bool opensWithAnyKey = true)
@@ -32,7 +32,7 @@ namespace ProjectExplorer.Tiles
             this.spriteClosed = spriteClosed;
             this.openStatus = openStatus;
             OpensWithAnyKey = opensWithAnyKey;
-            transform = new Rectangle(position.ToPoint(), Tiling.ToPixels(2, 2));
+            Position = position;
         }
 
         public CollisionGroup Group => CollisionGroup.Tiles;
@@ -51,7 +51,7 @@ namespace ProjectExplorer.Tiles
 
         public Rectangle GetCollider()
         {
-            return transform;
+            return new Rectangle(Position.ToPoint(), Tiling.Full);
         }
 
         public ICollisionHandler GetCollisionHandler()

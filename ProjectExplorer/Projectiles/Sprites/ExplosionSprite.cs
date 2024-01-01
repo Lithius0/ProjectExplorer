@@ -12,8 +12,11 @@ namespace ProjectExplorer.Projectiles.Sprites
 {
     public class ExplosionSprite : SimpleAnimatedSprite
     {
-        public ExplosionSprite(Vector2 position) : base(SpriteManager.GetTexture("Objects"), new Rectangle(64, 64, 32, 32), position, 7, 1/10f, false)
+        public ExplosionSprite(Vector2 position) : base("Objects", new Rectangle(64, 64, 32, 32), 7)
         {
+            Offset = position;
+            Repeat = false;
+            Duration = 1;
             Layer = LayerConstants.Player;
         }
     }

@@ -22,25 +22,18 @@ namespace ProjectExplorer.Character.Sprite
         private static Rectangle Source = new(144, 0, 16, 32);
         private ISprite itemSprite;
 
-        public PickupSprite(Texture2D texture, Vector2 position, IItem item, float delay, bool twoHanded) : base(texture, Source, position, 1, delay, false)
+        public PickupSprite(Texture2D texture, IPlayer player, IItem item) : base(texture, Source, 1)
         {
-            if (twoHanded)
-            {
-                startSource = new Rectangle(208, 0, 32, 32);
-                itemSprite = new BaseSprite(item.GetSprite())
-                {
-                    Offset = position + new Vector2(0, -8),
-                };
-            }
-            else
-            {
-                itemSprite = new BaseSprite(item.GetSprite())
-                {
-                    Offset = position + new Vector2(-4, -8),
-                };
-            }
-
+            Repeat = false;
+            AttachedObject = player;
             Layer = LayerConstants.Player;
+            startSource = new Rectangle(208, 0, 32, 32);
+            itemSprite = new BaseSprite(item.GetSprite())
+            {
+                AttachedObject = player,
+                Layer = LayerConstants.Player + 0.01f,
+                Offset = new Vector2(0, -8),
+            };
         }
 
         public override void Draw(GameTime gametime, SpriteBatch spriteBatch)

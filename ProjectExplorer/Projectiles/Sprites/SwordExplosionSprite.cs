@@ -14,8 +14,10 @@ namespace ProjectExplorer.Projectiles.Sprites
     {
         private static readonly Rectangle Source = new(96, 0, 8, 16);
 
-        public SwordExplosionSprite(Texture2D texture, IGameObject attached, Vector2 velocity) : base(texture, Source, attached, 4, 1/15f)
+        public SwordExplosionSprite(Texture2D texture, IGameObject attached, Vector2 velocity) : base(texture, Source, 4)
         {
+            AttachedObject = attached;
+            Delay = 1 / 15f;
             SpriteEffects flip = SpriteEffects.None;
 
             // Just imagine the |= operator as appying that effect to the flip variable

@@ -24,15 +24,19 @@ namespace ProjectExplorer.Character.Sprite
         {
             this.character = character;
             previousDirection = character.Direction;
-            leftSprite = new SimpleAnimatedSprite(SpriteManager.GetTexture("Slime"), new Rectangle(0, 32, 16, 32), character, 6, 1 / 7f, true)
+            leftSprite = new SimpleAnimatedSprite("Slime", new Rectangle(0, 32, 16, 32), 6)
             {
+                AttachedObject = character,
                 Layer = LayerConstants.Enemy,
                 Offset = new Vector2(0, -8),
+                Duration = 1,
             };
-            rightSprite = new SimpleAnimatedSprite(SpriteManager.GetTexture("Slime"), new Rectangle(0, 0, 16, 32), character, 6, 1 / 7f, true)
+            rightSprite = new SimpleAnimatedSprite("Slime", new Rectangle(0, 0, 16, 32), 6)
             {
+                AttachedObject = character,
                 Layer = LayerConstants.Enemy,
                 Offset = new Vector2(0, -8),
+                Duration = 1,
             };
             activeSprite = leftSprite;
 

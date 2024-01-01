@@ -11,14 +11,15 @@ namespace ProjectExplorer.Character.Sprite
 {
     public class AttackSprite : PlayerSubsprite
     {
-        public AttackSprite(Texture2D texture, Rectangle source, IPlayer player, int frames = 3) : base(texture, source, player, frames, PlayerConfig.AttackDuration / frames, false)
+        public AttackSprite(Texture2D texture, Rectangle source, IPlayer player, int frames = 3) : base(texture, source, player, frames)
         {
+            Repeat = false;
         }
 
         public override void Draw(GameTime gametime, SpriteBatch spriteBatch)
         {
-            // AttackDuration can change through the settings.
-            delay = PlayerConfig.AttackDuration / frames;
+            // Duration can change during runtime.
+            Duration = PlayerConfig.AttackDuration;
             base.Draw(gametime, spriteBatch);
         }
     }

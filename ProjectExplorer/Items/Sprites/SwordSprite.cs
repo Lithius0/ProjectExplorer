@@ -14,8 +14,10 @@ namespace ProjectExplorer.Items.Sprites
     public class SwordSprite : SimpleAnimatedSprite
     {
         protected static readonly Rectangle Source = new(0, 0, 16, 16);
-        public SwordSprite(Texture2D texture, Projectile sword) : base(texture, Source, sword, 4, 1/15f)
+        public SwordSprite(Texture2D texture, Projectile sword) : base(texture, Source, 4)
         {
+            delay = 1 / 15f;
+            AttachedObject = sword;
             Rotation = RotationFromVelocity(sword.Velocity);
             Layer = LayerConstants.Projectile;
         }

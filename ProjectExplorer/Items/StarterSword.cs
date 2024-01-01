@@ -33,7 +33,7 @@ namespace ProjectExplorer.Items
         public void Pickup(IPlayer player, int amount = 1)
         {
             player.Inventory.AddItem(Instance, amount);
-            player.PlayAnimation(PlayerSpriteFactory.Instance.GetPickupSprite(player.Position, Instance, 1, false), true);
+            player.PlayAnimation(PlayerSpriteFactory.Instance.GetPickupSprite(player, Instance, 1), true);
         }
 
         public bool Use(IPlayer player)

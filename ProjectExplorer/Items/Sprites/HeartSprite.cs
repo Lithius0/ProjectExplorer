@@ -13,11 +13,11 @@ namespace ProjectExplorer.Items.Sprites
     public class HeartSprite : SimpleAnimatedSprite
     {
         private static readonly Rectangle Source = new(0, 48, 16, 16);
-        public HeartSprite(Texture2D texture, Vector2 position) : base(texture, Source, position, 4, 0.2f)
+        public HeartSprite(Texture2D texture, Vector2 position) : base(texture, Source, 4)
         {
             Offset = position;
             Layer = LayerConstants.Item;
-            delay = 0.1f;
+            Delay = 0.2f;
         }
     }
 }

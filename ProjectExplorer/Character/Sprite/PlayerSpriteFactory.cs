@@ -44,7 +44,11 @@ namespace ProjectExplorer.Character.Sprite
         public IAnimatedSprite GetPlayerMoveSprite(Direction direction, IPlayer player)
         {
             Rectangle source = new(0, GetOffset(direction), 16, 32);
-            return new PlayerSubsprite(SpriteManager.GetTexture("Character"), source, player, WALK_FRAMES, WALK_DELAY, true);
+            return new PlayerSubsprite(SpriteManager.GetTexture("Character"), source, player, WALK_FRAMES)
+            {
+                Delay = WALK_DELAY,
+                Repeat = true,
+            };
         }
 
         public IAnimatedSprite GetPlayerAttackingSprite(Direction direction, IPlayer player)
@@ -53,9 +57,12 @@ namespace ProjectExplorer.Character.Sprite
             return new AttackSprite(SpriteManager.GetTexture("Character"), source, player);
         }
 
-        public IAnimatedSprite GetPickupSprite(Vector2 position, IItem item, float delay = 1, bool twoHanded = false)
+        public IAnimatedSprite GetPickupSprite(IPlayer player, IItem item, float duration = 1)
         {
-            return new PickupSprite(SpriteManager.GetTexture("Character"), position, item, delay, twoHanded);
+            return new PickupSprite(SpriteManager.GetTexture("Character"), player, item)
+            {
+                Duration = duration,
+            };
         }
     }
 }

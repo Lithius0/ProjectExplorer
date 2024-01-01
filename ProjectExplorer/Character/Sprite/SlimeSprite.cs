@@ -87,7 +87,7 @@ namespace ProjectExplorer.Character.Sprite
         {
             playing = true;
             activeSprite.Play();
-            OnPause?.Invoke(this, EventArgs.Empty);
+            OnPlay?.Invoke(this, EventArgs.Empty);
             return this;
         }
 

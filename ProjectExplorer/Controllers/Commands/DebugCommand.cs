@@ -10,11 +10,8 @@ namespace ProjectExplorer.Controllers.Commands
 {
     public class DebugCommand : ICommand
     {
-        private ScreenManager screenManager;
-
-        public DebugCommand(ScreenManager screenManager)
+        public DebugCommand()
         {
-            this.screenManager = screenManager;
         }
 
         public void Execute()

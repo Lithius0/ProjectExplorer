@@ -54,7 +54,7 @@ namespace ProjectExplorer
             this.mouseController = mouseController;
 
             KeyboardCommands.RegisterPlayerCommands(keyboardController, levelManager.Player);
-            KeyboardCommands.RegisterGameCommands(keyboardController, this, screen);
+            KeyboardCommands.RegisterGameCommands(keyboardController, this);
             MouseCommands.RegisterGameCommands(mouseController, this, levelManager);
 
             Debug.WriteLine("Initialized");

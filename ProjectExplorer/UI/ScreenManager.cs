@@ -31,7 +31,6 @@ namespace ProjectExplorer.UI
         public Rectangle GameWindow => new(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
 
         private int scale = 1;
-        private bool wide = false;
         public int Scale
         {
             get => scale;
@@ -41,7 +40,6 @@ namespace ProjectExplorer.UI
                 graphics.PreferredBackBufferWidth = defaultWidth * scale;
                 graphics.PreferredBackBufferHeight = defaultHeight * scale;
                 graphics.ApplyChanges();
-
             }
         }
 

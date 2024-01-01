@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjectExplorer.Character.Enemies;
 
 namespace ProjectExplorer.Scripts
 {
@@ -33,15 +34,14 @@ namespace ProjectExplorer.Scripts
 
         public void Update(GameTime gameTime)
         {
-            /*
-            ISet<IEnemy> enemies = level.GetObjects<IEnemy>();
+            // TODO: Change this to the IEnemy interface
+            ISet<Enemy> enemies = level.GetObjects<Enemy>();
             if (enemies.Count <= 0)
             {
                 SoundFactory.Instance.PlaySound("KeyAppear");
                 level.Deregister(this);
                 level.Register(obj);
             }
-            */
         }
     }
 }

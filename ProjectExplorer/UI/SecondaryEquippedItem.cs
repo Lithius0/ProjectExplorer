@@ -17,7 +17,6 @@ namespace ProjectExplorer.UI
     {
         private static Rectangle Source = new(0, 0, 48, 48);
 
-        private Vector2 position;
         private TextSprite amountDisplay;
         private ISprite borderSprite;
         private ItemLabel secondaryItem;

@@ -13,8 +13,7 @@ namespace ProjectExplorer.Utility
     /// </summary>
     public static class Randomizer
     {
-        private static Random r = new Random();
-        private static readonly float root2 = MathF.Sqrt(2);
+        private static Random r = new();
 
         // Vectors pointing in the 8 standard compass directions
         public static readonly Vector2[] CompassVectors =

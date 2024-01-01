@@ -28,11 +28,11 @@ namespace ProjectExplorer.Controllers
             controller.RegisterPressCommand(Keys.Right, new SelectCommand(player, Direction.Right));
         }
 
-        public static void RegisterGameCommands(KeyboardController controller, Game1 game, ScreenManager screen)
+        public static void RegisterGameCommands(KeyboardController controller, Game1 game)
         {
             controller.RegisterPressCommand(Keys.Q, new CommandQuit(game));
             controller.RegisterPressCommand(Keys.R, new ResetCommand());
-            controller.RegisterPressCommand(Keys.OemTilde, new DebugCommand(screen));
+            controller.RegisterPressCommand(Keys.OemTilde, new DebugCommand());
             controller.RegisterPressCommand(Keys.OemMinus, new ZoomCommand(game.Screen, -1));
             controller.RegisterPressCommand(Keys.OemPlus, new ZoomCommand(game.Screen, 1));
             controller.RegisterPressCommand(Keys.P, new PauseCommand());

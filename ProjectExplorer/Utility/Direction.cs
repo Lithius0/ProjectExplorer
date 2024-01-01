@@ -59,21 +59,20 @@ namespace ProjectExplorer
             };
         }
 
+        /// <summary>
+        /// Returns the direction closest to the input vector.
+        /// Behavior not guaranteed for a zero vector or a vector halfway between two directions.
+        /// </summary>
         public static Direction ParseVector(Vector2 v)
         {
-            if(v.Equals(Vector2.UnitY))
-                return Direction.Down;
-
-            if(v.Equals(Vector2.UnitX))
-                return Direction.Right;
-
-            if(v.Equals(-Vector2.UnitY))
+            if (Math.Abs(v.X) <= v.Y)
                 return Direction.Up;
-
-            if(v.Equals(-Vector2.UnitX))
+            else if (v.X >= Math.Abs(v.Y))
+                return Direction.Right;
+            else if (Math.Abs(v.X) <= -v.Y)
+                return Direction.Down;
+            else
                 return Direction.Left;
-
-            throw new NotImplementedException();
         }
     }
 }

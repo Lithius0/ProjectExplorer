@@ -22,7 +22,7 @@ namespace ProjectExplorer.Items
 
         public SpriteDefinition GetSprite()
         {
-            return SpriteManager.GetSpriteDefinition("Objects", new Rectangle(0, 64, 16, 16));
+            return new SpriteDefinition("Objects", 0, 64, 16, 16);
         }
 
         public void Pickup(IPlayer player, int amount = 1)

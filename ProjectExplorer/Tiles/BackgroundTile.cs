@@ -32,7 +32,7 @@ namespace ProjectExplorer.Tiles
         }
         public BackgroundTile(Vector2 position, string texture, Rectangle source)
         {
-            sprite = new BaseSprite(SpriteManager.GetTexture(texture), source)
+            sprite = new BaseSprite(new SpriteDefinition(texture, source))
             {
                 AnchorPoint = AnchorPoints.TopLeft,
                 Layer = LayerConstants.Background,

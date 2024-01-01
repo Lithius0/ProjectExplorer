@@ -43,7 +43,7 @@ namespace ProjectExplorer.Items
 
         public SpriteDefinition GetSprite()
         {
-            return SpriteManager.GetSpriteDefinition("Items", new Rectangle(0, 96, 16, 16));
+            return new SpriteDefinition("Items", 0, 96, 16, 16);
         }
 
         public override string ToString()

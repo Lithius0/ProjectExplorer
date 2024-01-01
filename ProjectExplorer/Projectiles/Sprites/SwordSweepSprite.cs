@@ -15,7 +15,7 @@ namespace ProjectExplorer.Projectiles.Sprites
     {
         protected static readonly Rectangle Source = new(0, 16, 16, 16);
         protected SwordSweep sword;
-        public SwordSweepSprite(SwordSweep sword) : base(SpriteManager.GetTexture("Items"), Source)
+        public SwordSweepSprite(SwordSweep sword) : base(new SpriteDefinition("Items", Source))
         {
             this.sword = sword;
             Rotation = RotationFromVelocity(sword.Velocity);

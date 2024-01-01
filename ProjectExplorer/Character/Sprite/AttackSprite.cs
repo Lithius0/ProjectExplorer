@@ -11,7 +11,7 @@ namespace ProjectExplorer.Character.Sprite
 {
     public class AttackSprite : PlayerSubsprite
     {
-        public AttackSprite(Texture2D texture, Rectangle source, IPlayer player, int frames = 3) : base(texture, source, player, frames)
+        public AttackSprite(SpriteDefinition spriteDefinition, IPlayer player, int frames = 3) : base(spriteDefinition, player, frames)
         {
             Repeat = false;
         }

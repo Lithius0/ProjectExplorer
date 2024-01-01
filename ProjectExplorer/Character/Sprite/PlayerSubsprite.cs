@@ -17,7 +17,7 @@ namespace ProjectExplorer.Character.Sprite
     {
         private IPlayer player;
 
-        public PlayerSubsprite(Texture2D texture, Rectangle source, IPlayer player, int frames) : base(texture, source, frames)
+        public PlayerSubsprite(SpriteDefinition spriteDefinition, IPlayer player, int frames) : base(spriteDefinition, frames)
         {
             this.player = player;
             AttachedObject = player;

@@ -13,7 +13,7 @@ namespace ProjectExplorer.UI.Elements
     public class HeartDisplaySprite : BaseSprite
     {
 
-        public HeartDisplaySprite(Vector2 position, float fullness) : base(SpriteManager.GetTexture("Objects"), new Rectangle(128, 2, 14, 14))
+        public HeartDisplaySprite(Vector2 position, float fullness) : base(new SpriteDefinition("Objects", 128, 2, 14, 14))
         {
             Layer = LayerConstants.Foreground;
             Offset = position;

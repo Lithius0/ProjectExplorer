@@ -28,7 +28,7 @@ namespace ProjectExplorer.UI
             { 
                 Offset = position + new Vector2(32, 32) 
             };
-            borderSprite = new BaseSprite(SpriteManager.GetTexture("Hud"), Source)
+            borderSprite = new BaseSprite(new SpriteDefinition("Hud", Source))
             {
                 Offset = position,
                 AnchorPoint = AnchorPoints.TopLeft,

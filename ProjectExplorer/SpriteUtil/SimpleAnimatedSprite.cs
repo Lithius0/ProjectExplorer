@@ -48,18 +48,6 @@ namespace ProjectExplorer.SpriteUtil
             get { return delay * frames; }
             set { delay = value / frames; }
         }
-
-
-        public SimpleAnimatedSprite(Texture2D texture, Rectangle source, int frames) : base(texture, source)
-        {
-            startSource = source;
-            this.frames = frames;
-        }
-        public SimpleAnimatedSprite(string texture, Rectangle source, int frames) : base(texture, source)
-        {
-            startSource = this.source; // Base can do proccessing on the source. Most notably, for missing textures.
-            this.frames = frames;
-        }
         public SimpleAnimatedSprite(SpriteDefinition definition, int frames) : base(definition)
         {
             startSource = source;

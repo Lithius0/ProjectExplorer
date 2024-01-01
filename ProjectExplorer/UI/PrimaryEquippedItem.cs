@@ -21,7 +21,7 @@ namespace ProjectExplorer.UI
 
         public PrimaryEquippedItem(Vector2 position)
         {
-            borderSprite = new BaseSprite(SpriteManager.GetTexture("Hud"), Source)
+            borderSprite = new BaseSprite(new SpriteDefinition("Hud", Source))
             {
                 Offset = position,
                 AnchorPoint = AnchorPoints.TopLeft,

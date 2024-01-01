@@ -31,14 +31,6 @@ namespace ProjectExplorer.SpriteUtil
         public Color Color { get; set; } = Color.White;
         public SpriteEffects SpriteEffect { get; set; } = SpriteEffects.None;
 
-        public BaseSprite(Texture2D texture, Rectangle source)
-        {
-            this.texture = texture;
-            this.source = source;
-        }
-        public BaseSprite(string texture, Rectangle source) : this(SpriteManager.GetSpriteDefinition(texture, source))
-        {
-        }
         public BaseSprite(SpriteDefinition definition)
         {
             texture = definition.Texture;
@@ -52,7 +44,7 @@ namespace ProjectExplorer.SpriteUtil
 
         public static BaseSprite GetMissingSprite()
         { 
-            return new BaseSprite(SpriteManager.GetTexture("Missing"), new Rectangle(0, 0, 16, 16)); 
+            return new BaseSprite(new SpriteDefinition("Missing", 0, 0, 16, 16)); 
         }
 
         public static float RotationFromVelocity(Vector2 velocity)

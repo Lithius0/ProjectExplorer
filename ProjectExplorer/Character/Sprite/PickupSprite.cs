@@ -19,15 +19,14 @@ namespace ProjectExplorer.Character.Sprite
     /// </summary>
     public class PickupSprite : SimpleAnimatedSprite
     {
-        private static Rectangle Source = new(144, 0, 16, 32);
+        private static Rectangle Source = new(208, 0, 32, 32);
         private ISprite itemSprite;
 
-        public PickupSprite(Texture2D texture, IPlayer player, IItem item) : base(texture, Source, 1)
+        public PickupSprite(IPlayer player, IItem item) : base(new SpriteDefinition("Character", Source), 1)
         {
             Repeat = false;
             AttachedObject = player;
             Layer = LayerConstants.Player;
-            startSource = new Rectangle(208, 0, 32, 32);
             itemSprite = new BaseSprite(item.GetSprite())
             {
                 AttachedObject = player,

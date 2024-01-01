@@ -56,26 +56,6 @@ namespace ProjectExplorer.SpriteUtil
                 throw new KeyNotFoundException($"{name} is not a valid sprite!");
         }
 
-        public static SpriteDefinition GetSpriteDefinition(string name, Rectangle source)
-        {
-            if (sprites.ContainsKey(name))
-            {
-                Texture2D texture = sprites[name];
-                if (texture.Bounds.Contains(source))
-                {
-                    return new SpriteDefinition(texture, source);
-                }
-                else
-                {
-                    return MissingTexture;
-                }
-            }
-            else
-            {
-                return MissingTexture;
-            }
-        }
-
         public static SpriteFont GetFont(string name)
         {
             if (fonts.ContainsKey(name))

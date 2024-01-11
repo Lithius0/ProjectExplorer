@@ -54,5 +54,13 @@ namespace ProjectExplorer.Levels
         /// Gets all of the objects in this manager which are of type T
         /// </summary>
         public ISet<T> GetObjects<T>() where T : IGameObject;
+
+        /// <summary>
+        /// Add a child to an object. When the parent is deregistered, the child will be as well.
+        /// Each child can only have one parent.
+        /// </summary>
+        /// <param name="parent"></param>
+        /// <param name="child"></param>
+        public void AddChild(IGameObject parent, IGameObject child);
     }
 }

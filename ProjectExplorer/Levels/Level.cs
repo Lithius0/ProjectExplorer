@@ -16,9 +16,8 @@ namespace ProjectExplorer.Levels
     /// <summary>
     /// Class responsible for holding all the objects being updated and drawn.
     /// </summary>
-    public class Level : ILevel
+    public class Level : ObjectManager, ILevel
     {
-        private readonly ISet<IGameObject> gameObjects;
         private readonly IDictionary<string, ISet<IGameObject>> tags;
         private readonly CollisionManager collisionManager;
 
@@ -35,7 +34,6 @@ namespace ProjectExplorer.Levels
             this.levelId = levelId;
             this.mapPosition = mapPosition;
 
-            gameObjects = new HashSet<IGameObject>();
             collisionManager = new CollisionManager();
             tags = new Dictionary<string, ISet<IGameObject>>();
 
@@ -45,19 +43,19 @@ namespace ProjectExplorer.Levels
         public string LevelId => levelId;
         public Point MapPosition => mapPosition;
 
-        public void Deregister(IGameObject obj)
+        public override void Deregister(IGameObject obj)
         {
-            gameObjects.Remove(obj);
             collisionManager.Remove(obj);
+            base.Deregister(obj);
         }
 
-        public void DeregisterAll()
+        public override void DeregisterAll()
         {
-            gameObjects.Clear();
             collisionManager.RemoveAll();
+            base.DeregisterAll();
         }
 
-        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             Draw(gameTime, spriteBatch, Matrix.Identity);
         }
@@ -70,7 +68,7 @@ namespace ProjectExplorer.Levels
                 sortMode: SpriteSortMode.FrontToBack,
                 transformMatrix: matrix
             );
-            foreach (IGameObject gameObject in gameObjects.ToArray())
+            foreach (IGameObject gameObject in objectMap.Keys.ToArray())
             {
                 gameObject.Draw(gameTime, spriteBatch);
             }
@@ -78,22 +76,13 @@ namespace ProjectExplorer.Levels
             spriteBatch.End();
         }
 
-        public bool IsRegistered(IGameObject obj)
-        {
-            // gameObjects shouldn't contain null anyways. This is a second check after Register's null check.
-            if (obj == null)
-                return false;
-            else
-                return gameObjects.Contains(obj);
-        }
 
-        public void Register(IGameObject obj)
+        public override void Register(IGameObject obj)
         {
             if (obj != null)
             {
-                gameObjects.Add(obj);
                 collisionManager.Add(obj);
-                obj.OnRegister(this);
+                base.Register(obj);
             }
             else
             {
@@ -101,14 +90,9 @@ namespace ProjectExplorer.Levels
             }
         }
 
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
-            // Changing to array to prevent a concurrent modification issue
-            // For example, if an object deregisters itself during update.
-            foreach (IGameObject gameObject in gameObjects.ToArray())
-            {
-                gameObject.Update(gameTime);
-            }
+            base.Update(gameTime);
             collisionManager.CheckCollisions();
         }
 
@@ -117,16 +101,6 @@ namespace ProjectExplorer.Levels
             return collisionManager.LastValidSpotBetween(source, end);
         }
 
-        public ISet<T> GetObjects<T>() where T : IGameObject
-        {
-            ISet<T> subset = new HashSet<T>();
-            foreach(IGameObject obj in gameObjects)
-            {
-                if (obj is T t)
-                    subset.Add(t);
-            }
-            return subset;
-        }
         public IGameObject[] GetObjectsWithTag(string tag)
         {
             IGameObject[] taggedObjects = Array.Empty<IGameObject>();

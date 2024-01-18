@@ -83,6 +83,7 @@ namespace ProjectExplorer.Levels
             {
                 collisionManager.Add(obj);
                 base.Register(obj);
+                obj.OnRegister(this);
             }
             else
             {
